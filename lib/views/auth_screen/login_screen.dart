@@ -55,7 +55,7 @@ class LoginScreen extends StatelessWidget {
                     SizedBox(
                       width: context.screenWidth - 50,
                       child: customButton(title: 'Login', color: redColor, textColor: whiteColor, onPress: (){
-                        Get.to(()=>{HomeScreen()});
+                        Get.to(HomeScreen());
 
                       } ),
                     ),

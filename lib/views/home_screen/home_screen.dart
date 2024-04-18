@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:e_commerce/consts/consts.dart';
+import 'package:e_commerce/controller/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 
 
 class HomeScreen extends StatelessWidget {
@@ -10,8 +12,9 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // calling home controller
+    var controller = Get.put(HomeController());
 
-    var controller = get
 
     var navbarItem = [
       BottomNavigationBarItem(icon: Image.asset(icHome, width: 26,),label: 'Home'),
@@ -29,15 +32,26 @@ class HomeScreen extends StatelessWidget {
 
 
     return Scaffold(
-      body: Container(),
-      bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: whiteColor,
-          selectedItemColor: redColor,
-          selectedLabelStyle: TextStyle(
-            fontFamily: semibold,
-          ),
-          items: navbarItem
+      body: Column(
+        children: [
+          Obx(()=>Expanded(child: navBody.elementAt(controller.curentNavIndex.value))),
+        ],
+
+      ),
+      bottomNavigationBar: Obx(()=>
+            BottomNavigationBar(
+              currentIndex: controller.curentNavIndex.value,
+              type: BottomNavigationBarType.fixed,
+              backgroundColor: whiteColor,
+              selectedItemColor: redColor,
+              selectedLabelStyle: TextStyle(
+              fontFamily: semibold,
+              ),
+              items: navbarItem,
+              onTap: (value){
+                  controller.curentNavIndex.value = value;
+              },
+        ),
       ),
     );
   }
