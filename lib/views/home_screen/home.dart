@@ -2,13 +2,17 @@
 
 import 'package:e_commerce/consts/consts.dart';
 import 'package:e_commerce/controller/home_controller.dart';
+import 'package:e_commerce/views/cart_screen/cart_screen.dart';
+import 'package:e_commerce/views/categories/categories_screen.dart';
+import 'package:e_commerce/views/home_screen/hone_screen.dart';
+import 'package:e_commerce/views/profile_screen/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class Home extends StatelessWidget {
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +28,10 @@ class HomeScreen extends StatelessWidget {
     ];
 
     var navBody = [
-      Container(color: Colors.blueAccent),
-      Container(color: Colors.yellowAccent),
-      Container(color: Colors.orangeAccent),
-      Container(color: Colors.cyanAccent),
+      HomeScreen(),
+      CategoriesScreen(),
+      CartScreen(),
+      ProfileScreen(),
     ];
 
 
