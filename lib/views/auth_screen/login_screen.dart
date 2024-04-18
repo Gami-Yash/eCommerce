@@ -3,6 +3,7 @@
 import 'package:e_commerce/consts/Icons_list.dart';
 import 'package:e_commerce/consts/consts.dart';
 import 'package:e_commerce/views/auth_screen/signup_screen.dart';
+import 'package:e_commerce/views/home_screen/home_screen.dart';
 import 'package:e_commerce/widgets/common/appLogo.dart';
 import 'package:e_commerce/widgets/common/bg_widget.dart';
 import 'package:e_commerce/widgets/common/custom_button.dart';
@@ -53,7 +54,10 @@ class LoginScreen extends StatelessWidget {
                     ),
                     SizedBox(
                       width: context.screenWidth - 50,
-                      child: customButton(title: 'Login', color: redColor, textColor: whiteColor, onPress: (){} ),
+                      child: customButton(title: 'Login', color: redColor, textColor: whiteColor, onPress: (){
+                        Get.to(()=>{HomeScreen()});
+
+                      } ),
                     ),
                     Container(
                       margin: EdgeInsets.only(top: 10),
