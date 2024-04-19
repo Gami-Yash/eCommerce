@@ -36,6 +36,7 @@ class Home extends StatelessWidget {
 
 
     return Scaffold(
+
       body: Column(
         children: [
           Obx(()=>Expanded(child: navBody.elementAt(controller.curentNavIndex.value))),
@@ -60,3 +61,5 @@ class Home extends StatelessWidget {
     );
   }
 }
+
+
