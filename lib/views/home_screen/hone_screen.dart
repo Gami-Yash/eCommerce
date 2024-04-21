@@ -3,6 +3,7 @@
 import 'package:e_commerce/consts/Icons_list.dart';
 import 'package:e_commerce/consts/colors.dart';
 import 'package:e_commerce/consts/consts.dart';
+import 'package:e_commerce/widgets/common/home_buttons.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -33,20 +34,33 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-          //   Swiper
-          VxSwiper.builder(
-            aspectRatio: 16/9,
-              autoPlay: true,
-              height: 150,
-              itemCount: sliderList.length,
-              enlargeCenterPage: true,
-              itemBuilder: (context, index){
-                return Container(
-                  child: Image.asset(sliderList[index], fit: BoxFit.fill,),
-                ).box.rounded.clip(Clip.antiAlias).margin(EdgeInsets.symmetric(horizontal: 8)).make();
-              }
-          )
-
+            //   Swiper
+            VxSwiper.builder(
+                aspectRatio: 16 / 9,
+                autoPlay: true,
+                height: 150,
+                itemCount: sliderList.length,
+                enlargeCenterPage: true,
+                itemBuilder: (context, index) {
+                  return Container(
+                    child: Image.asset(
+                      sliderList[index],
+                      fit: BoxFit.fill,
+                    ),
+                  ).box.rounded.clip(Clip.antiAlias).margin(EdgeInsets.symmetric(horizontal: 8)).make();
+                }
+            ),
+            10.heightBox,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children:  List.generate(2, (index) => homeButtons(
+                width: context.screenWidth / 2.5,
+                height: context.screenHeight * 0.2,
+                icon: index == 0 ? icTodaysDeal : icFlashDeal,
+                title : index == 0 ? "Todays Deal" : "FLash Sale"
+                )
+              )
+            )
           ],
         ),
       ),
