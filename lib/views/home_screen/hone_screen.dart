@@ -96,7 +96,7 @@ class HomeScreen extends StatelessWidget {
                       )
                       ),
                     ),
-                    10.heightBox,
+                    20.heightBox,
                     Align(
                       alignment: Alignment.topLeft,
                       child: Text('Featured Categories',
@@ -107,6 +107,8 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
+                    20.heightBox,
+                    Row(),
                   ],
                 ),
               ),
